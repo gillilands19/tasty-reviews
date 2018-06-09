@@ -1,0 +1,11 @@
+mixin registerForm()
+  form.form(action="/register" method="POST")
+    label(for="name" name) Name
+    input(type="text" name="name" required)
+    label(for="email") Email
+    input(type="email" name="email" required)
+    label(for="password") Password
+    input(type="password" name="password" required)
+    label(for="confirm-password") Confirm Password
+    input(type="password" name="confirm-password" required)
+    input.button(type="submit" value="Register <<")
