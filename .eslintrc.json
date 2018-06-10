@@ -1,9 +1,14 @@
 {
     "env": {
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": "google",
     "rules": {
-
+        "object-curly-spacing": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 8
     }
+
 }
