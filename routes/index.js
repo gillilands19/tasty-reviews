@@ -11,7 +11,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', catchErrors(storeController.getStores));
 router.get('/stores', catchErrors(storeController.getStores));
-router.get('/add', storeController.addStore);
+router.get('/add', authController.isLoggedIn, storeController.addStore);
 // wrap the createStore method in catchErrors so the error handling
 // middleware takes care of it. cleaner than using try and catch blocks.
 // and follows the DRY method by not having to repeat
@@ -44,6 +44,11 @@ router.post('/register',
   userController.register,
   authController.login
 );
+
+router.get('/logout', authController.logout);
+
+router.get('/account', authController.isLoggedIn, userController.account);
+router.post('/account', catchErrors(userController.updateAccount));
 
 
 module.exports = router;

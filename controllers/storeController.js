@@ -65,6 +65,7 @@ exports.getStores = async (req, res) => {
   // query database for a list of all stores
   const stores = await Store.find();
   res.render('stores', { title: 'Stores', stores });
+  console.log(req.user);
 };
 
 exports.editStore = async (req, res) => {
