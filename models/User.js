@@ -20,6 +20,8 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, 'Invalid Email Address'],
     required: 'Please supply an email address!',
   },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
 });
 
 userSchema.virtual('gravatar').get(function() {
